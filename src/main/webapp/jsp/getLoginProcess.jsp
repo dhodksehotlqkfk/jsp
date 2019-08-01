@@ -53,7 +53,7 @@
 	<% while(parameterNames.hasMoreElements()){ 
 		String parameterName = parameterNames.nextElement();
 	%>
-		<%= parameterName %> : <%= request.getParameterNames() %> <br>
+		<%= parameterName %> <br>
 	<% } %>
 </body>
 </html>
