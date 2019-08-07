@@ -3,6 +3,7 @@ package kr.or.ddit.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,9 +31,9 @@ public class HelloServlet extends HttpServlet {
 	Logger logger = LoggerFactory.getLogger(HelloServlet.class);
 
 	@Override
-	public void init() throws ServletException {
+	public void init(ServletConfig config) throws ServletException {
 //		System.out.println("HelloServlet init()");
-		logger.debug("HelloServlet init()");
+		logger.debug("HelloServlet init() : {} ", config.getInitParameter("test"));
 	}
 	
 	@Override
