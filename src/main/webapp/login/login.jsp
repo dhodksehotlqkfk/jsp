@@ -46,7 +46,7 @@
         <input type="text" id="userId" name="userId" class="form-control" placeholder="userId" required autofocus value="brown"> <!-- value="<%= userId %>" -->
         
         <label for="pass" class="sr-only">Password</label>
-        <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" required> <!-- value="brown1234" -->
+        <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" required value="brown1234"> 
         
         <div class="checkbox">
           <label>
