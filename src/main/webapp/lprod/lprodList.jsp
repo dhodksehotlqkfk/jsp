@@ -13,8 +13,20 @@
 <link rel="icon" href="../../favicon.ico">
 <title>Insert title here</title>
 <%@ include file="/commonJsp/basicLib.jsp" %>
+<script>
+	$(document).ready(function() {
+		$('.prodTr').on('click', function() {
+			$('#prod_gu').val($(this).children().filter(':eq(1)').text())
+			$('#frm').submit();
+		})
+	})
+</script>
 </head>
 <body>
+
+	<form action="${cp}/prod" id="frm">
+		<input type="hidden" id="prod_gu" name="prod_gu">
+	</form>
 
 	<!-- header -->
 	<%@ include file="/commonJsp/header.jsp" %>
@@ -42,7 +54,7 @@
                <th>LPROD_NM</th>
             </tr>
             <c:forEach items="${lprodList}" var="lprod">
-            	<tr>
+            	<tr class="prodTr">
             		<td>${lprod.lprod_id}</td>
             		<td>${lprod.lprod_gu}</td>
             		<td>${lprod.lprod_nm}</td>
