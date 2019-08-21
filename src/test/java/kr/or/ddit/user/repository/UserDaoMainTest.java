@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import kr.or.ddit.user.model.User;
 import kr.or.ddit.util.MybatisUtil;
 
-public class UserDaoMainText {
+public class UserDaoMainTest {
 	public static void main(String[] args) {
 		//userDao.getUserList();
 		IUserDao userDao = new UserDao();
@@ -18,11 +18,13 @@ public class UserDaoMainText {
 		
 		sqlSession.close();
 		
-		if(userList.size() == 5) {
+		if(userList.size() == 105)
 			System.out.println("db 조회 성공");
-		}else {
-			System.out.println("db 조회 실패");
-		}
-		
+		else
+			System.out.println("db 조회 실패");		
 	}
 }
+
+
+
+
