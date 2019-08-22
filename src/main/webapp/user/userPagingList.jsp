@@ -85,6 +85,18 @@ $(document).ready(function(){
 									<th>등록일시</th>
 								</tr>
 								
+<%-- 								<% 
+// 									List<User> userList = (List<User>)request.getAttribute("userList");--%>								
+<%-- 									for(User userVo : userList ){ %> --%>
+<!-- 									<tr> -->
+<%-- 										<td><%=userVo.getUserId() %></td> --%>
+<%-- 										<td><%=userVo.getUserNm() %></td> --%>
+<!-- 										<td></td> -->
+<!-- 										<td></td> -->
+<!-- 									</tr> -->
+<%-- 								<%} %> --%>
+								
+								<%-- for(User user : userList) --%>
 								<c:forEach items="${userList }" var="user" varStatus="loop">
 									<tr class="userTr" data-userId="${user.userId }" >
 										<input type="hidden" value="${user.userId }"/>
@@ -99,52 +111,56 @@ $(document).ready(function(){
 
 						<a class="btn btn-default pull-right">사용자 등록</a>
 
-
+				
 						<div class="text-center">
 							<ul class="pagination">
-								<%-- 이전 페이지 가기 : 지금 있는 페이지에서 한 페이지 전으로
-									 단 1페이지인 경우는 li 태그에 class="disabled"를 추가하고
-									 이동 경로는 차단 --%>
+								<%--이전 페이지 가기 :지금 있는 페이지에서 한 페이지 전으로
+									단 1페이지인 경우는 li 태그에 class="disabled"를 추가를 하고
+									이동 경로는 차단 
+								--%>
+									<c:choose>
+										<c:when test="${pageVo.page == 1 }">
+											<li class="disabled">
+												<span aria-hidden="true">&laquo;</span>
+											</li>
+										</c:when>
+										<c:otherwise>
+											<li>
+												<a href="${cp }/userPagingList?page=${pageVo.page-1 }" aria-label="Previous"> 
+													<span aria-hidden="true">&laquo;</span>
+												</a>
+											</li>
+										</c:otherwise>
+									</c:choose>
+								
+
+								<c:forEach begin="1" end="${paginationSize }" var="page">
+									
+									<c:choose>
+										<c:when test="${page == pageVo.page }">
+											<li class="active"><span>${page }</span></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="${cp }/userPagingList?page=${page }">${page }</a></li>
+										</c:otherwise>
+									</c:choose>
+									
+								</c:forEach>
+								
 								<c:choose>
-									<c:when test="${param.page == 1 }">
+									<c:when test="${pageVo.page == paginationSize }">
 										<li class="disabled">
-											<span aria-hidden="true">&laquo;</span>
+											<span aria-hidden="true">&raquo;</span>
 										</li>
 									</c:when>
 									<c:otherwise>
 										<li>
-											<a href="${cp }/userPagingList?page=${param.page-1 }&pagesize=10" aria-label="Previous"> 
-												<span aria-hidden="true">&laquo;</span>
+											<a href="${cp }/userPagingList?page=${pageVo.page+1 }" aria-label="Next"> 
+												<span aria-hidden="true">&raquo;</span>
 											</a>
 										</li>
 									</c:otherwise>
 								</c:choose>
-								
-						         <c:forEach begin="1" end="${paginationSize}" var="page">
-						            <c:choose>
-						               <c:when test="${page == param.page }">
-						                  <li class="active"><a href="${cp }/userPagingList?page=${page}&pagesize=10">${page}</a></li>
-						               </c:when>
-						               <c:otherwise>
-						                  <li><a href="${cp }/userPagingList?page=${page}&pagesize=10">${page}</a></li>
-						               </c:otherwise>
-						            </c:choose>
-						         </c:forEach>
-						        
-						        <c:choose>
-						        	<c:when test="${param.page == paginationSize }">
-						        		<li class="disabled">
-						        			<span area-hidden="true">&raquo;</span>
-						        		</li>
-						        	</c:when>
-						        	<c:otherwise>
-						        		<li>
-									      <a href="${cp }/userPagingList?page=${param.page+1 }&pagesize=10" aria-label="Next">
-									        <span aria-hidden="true">&raquo;</span>
-									      </a>
-									    </li>
-						        	</c:otherwise>
-						        </c:choose>
 							</ul>
 						</div>
 					</div>

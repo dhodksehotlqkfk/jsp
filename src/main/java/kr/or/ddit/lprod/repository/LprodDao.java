@@ -4,25 +4,48 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import kr.or.ddit.common.model.Page;
 import kr.or.ddit.lprod.model.LprodVO;
-import kr.or.ddit.util.MybatisUtil;
 
-public class LprodDao implements ILprodDao{
+public class LprodDao implements ILprodDao {
 
 	/**
 	* Method : getLprodList
-	* 작성자 : PC-02
+	* 작성자 : SEM-PC
 	* 변경이력 :
 	* @return
-	* Method 설명 : Lprod 전체 리스트 조회
+	* Method 설명 : 제품 그룹 리스트 조회
 	*/
 	@Override
-	public List<LprodVO> getLprodList() {
-		SqlSession sqlSession = MybatisUtil.getSession();
-		List<LprodVO> lprodList = sqlSession.selectList("lprod.getLprodList");
-		sqlSession.close();
-		
-		return lprodList;
+	public List<LprodVO> getLprodList(SqlSession sqlSession) {
+		return sqlSession.selectList("lprod.getLprodList");
+	}
+
+	/**
+	* Method : getLprodPagingList
+	* 작성자 : SEM-PC
+	* 변경이력 :
+	* @param sqlSession
+	* @param page
+	* @return
+	* Method 설명 : 제품 그룹 페이징 리스트 조회
+	*/
+	@Override
+	public List<LprodVO> getLprodPagingList(SqlSession sqlSession, Page page) {
+		return sqlSession.selectList("lprod.getLprodPagingList", page);
+	}
+
+	/**
+	* Method : getLprodTotalCnt
+	* 작성자 : SEM-PC
+	* 변경이력 :
+	* @param sqlSession
+	* @return
+	* Method 설명 : 제품 그룹 전체 건수 조회
+	*/
+	@Override
+	public int getLprodTotalCnt(SqlSession sqlSession) {
+		return sqlSession.selectOne("lprod.getLprodTotalCnt");
 	}
 
 }
