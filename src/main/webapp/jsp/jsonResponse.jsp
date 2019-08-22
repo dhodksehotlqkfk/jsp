@@ -3,4 +3,4 @@
 <%
 	String user = "{ \"name\" : \"brown\" }";
 %>
-<%= user %>
+<%=user%>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%-- 일반적인 프로그래밍 언어의 if - else if - else --%>
+	<%--일반적인 프로그래밍 언어의 if - else if - else --%>
 	<h2>core choose</h2>
 	<c:set var="code" value="02"/>
+	
 	<c:choose>
 		<c:when test="${code == '01' }">
 			code is 01
@@ -24,3 +25,13 @@
 	</c:choose>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

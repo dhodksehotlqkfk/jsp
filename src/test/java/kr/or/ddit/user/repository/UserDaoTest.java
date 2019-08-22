@@ -2,6 +2,8 @@ package kr.or.ddit.user.repository;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -131,6 +133,34 @@ public class UserDaoTest {
 
 		/***Then***/
 		assertEquals(105, totalCnt);
+	}
+	
+	/**
+	* Method : insertUserTest
+	* 작성자 : SEM-PC
+	* 변경이력 :
+	* Method 설명 : 사용자 등록 테스트
+	 * @throws ParseException 
+	*/
+	@Test
+	public void insertUserTest() throws ParseException {
+		/***Given***/
+		User user = new User();
+		
+		user.setUserId("brownTest");
+		user.setUserNm("브라운테스트");
+		user.setPass("brownTest1234");
+		user.setReg_dt(new SimpleDateFormat("yyyy-MM-dd").parse("2019-08-08"));
+		user.setAlias("곰테스트");
+		user.setAddr1("대전광역시 중구 중앙로 76");
+		user.setAddr2("영민빌딩 2층 DDIT");
+		user.setZipcode("34940");
+
+		/***When***/
+		int insertCnt = userDao.insertUser(sqlSession, user);
+
+		/***Then***/
+		assertEquals(1, insertCnt);
 	}
 
 }

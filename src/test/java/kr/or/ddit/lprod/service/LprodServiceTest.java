@@ -10,7 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.Page;
-import kr.or.ddit.lprod.model.LprodVO;
+import kr.or.ddit.lprod.model.Lprod;
+import kr.or.ddit.util.MybatisUtil;
 
 public class LprodServiceTest {
 
@@ -33,7 +34,7 @@ public class LprodServiceTest {
 		/***Given***/
 	
 		/***When***/
-		List<LprodVO> lprodList = lprodService.getLprodList();
+		List<Lprod> lprodList = lprodService.getLprodList();
 
 		/***Then***/
 		assertEquals(10, lprodList.size());
@@ -52,7 +53,7 @@ public class LprodServiceTest {
 
 		/***When***/
 		Map<String, Object> resultMap = lprodService.getLprodPagingList(page);
-		List<LprodVO> lprodList = (List<LprodVO>)resultMap.get("lprodList");
+		List<Lprod> lprodList = (List<Lprod>)resultMap.get("lprodList");
 		int paginationSize = (Integer)resultMap.get("paginationSize");
 
 		/***Then***/

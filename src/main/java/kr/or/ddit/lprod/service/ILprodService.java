@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.or.ddit.common.model.Page;
-import kr.or.ddit.lprod.model.LprodVO;
+import kr.or.ddit.lprod.model.Lprod;
 
 public interface ILprodService {
 
@@ -15,7 +15,7 @@ public interface ILprodService {
 	* @return
 	* Method 설명 : 제품 그룹 리스트 조회
 	*/
-	List<LprodVO> getLprodList();
+	List<Lprod> getLprodList();
 
 	/**
 	* Method : getLprodPagingList

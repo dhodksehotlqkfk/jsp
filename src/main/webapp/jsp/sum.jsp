@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String number = request.getParameter("number");
+	String number2 = request.getParameter("number2");
+	
+	int numberInt = Integer.parseInt(number);
+	int number2Int = Integer.parseInt(number2);
+	
+	int sumResult = 0;
+	for(int i = numberInt; i <= number2Int; i++)
+		sumResult += i;
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,15 +18,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		int num = Integer.parseInt(request.getParameter("number"));
-		int num2 = Integer.parseInt(request.getParameter("number2"));
-		
-		int sum = 0;
-		for(int i = num; i <= num2; i++){
-			sum += i;
-		}
-	%>
-	<h2>result : <%= sum %></h2>
+	result : <%=sumResult %>
 </body>
 </html>

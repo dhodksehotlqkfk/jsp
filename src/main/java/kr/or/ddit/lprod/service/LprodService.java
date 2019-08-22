@@ -7,9 +7,9 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import kr.or.ddit.common.model.Page;
-import kr.or.ddit.lprod.model.LprodVO;
-import kr.or.ddit.lprod.repository.ILprodDao;
-import kr.or.ddit.lprod.repository.LprodDao;
+import kr.or.ddit.lprod.dao.ILprodDao;
+import kr.or.ddit.lprod.dao.LprodDao;
+import kr.or.ddit.lprod.model.Lprod;
 import kr.or.ddit.util.MybatisUtil;
 
 public class LprodService implements ILprodService{
@@ -28,9 +28,9 @@ public class LprodService implements ILprodService{
 	* Method 설명 : 제품 그룹 리스트 조회
 	*/
 	@Override
-	public List<LprodVO> getLprodList() {
+	public List<Lprod> getLprodList() {
 		SqlSession sqlSession = MybatisUtil.getSession();
-		List<LprodVO> lprodList = lprodDao.getLprodList(sqlSession);
+		List<Lprod> lprodList = lprodDao.getLprodList(sqlSession);
 		sqlSession.close();
 		return lprodList;
 	}

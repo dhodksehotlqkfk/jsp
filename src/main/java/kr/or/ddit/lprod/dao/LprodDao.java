@@ -1,11 +1,11 @@
-package kr.or.ddit.lprod.repository;
+package kr.or.ddit.lprod.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import kr.or.ddit.common.model.Page;
-import kr.or.ddit.lprod.model.LprodVO;
+import kr.or.ddit.lprod.model.Lprod;
 
 public class LprodDao implements ILprodDao {
 
@@ -17,7 +17,7 @@ public class LprodDao implements ILprodDao {
 	* Method 설명 : 제품 그룹 리스트 조회
 	*/
 	@Override
-	public List<LprodVO> getLprodList(SqlSession sqlSession) {
+	public List<Lprod> getLprodList(SqlSession sqlSession) {
 		return sqlSession.selectList("lprod.getLprodList");
 	}
 
@@ -31,7 +31,7 @@ public class LprodDao implements ILprodDao {
 	* Method 설명 : 제품 그룹 페이징 리스트 조회
 	*/
 	@Override
-	public List<LprodVO> getLprodPagingList(SqlSession sqlSession, Page page) {
+	public List<Lprod> getLprodPagingList(SqlSession sqlSession, Page page) {
 		return sqlSession.selectList("lprod.getLprodPagingList", page);
 	}
 

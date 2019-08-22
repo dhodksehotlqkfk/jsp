@@ -13,11 +13,25 @@
 	%>
 	<h2>request header</h2>
 	<ul>
-		<% while(headerNames.hasMoreElements()){ 
+		<%while(headerNames.hasMoreElements()){
 			String headerName = headerNames.nextElement();
 		%>
-		<li><%= headerName %> : <%= request.getHeader(headerName) %></li>
-		<% } %>
-	</ul>	
+			<li><%=headerName %> : <%=request.getHeader(headerName) %></li>
+		<%}%>
+	</ul>
+	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,20 +9,44 @@ import org.slf4j.LoggerFactory;
 public class User {
 	private static final Logger logger = LoggerFactory.getLogger(User.class);
 	
-	private String userId;	// 사용자 아이디
-	private String pass;	// 사용자 비밀번호
-	private String userNm;	// 사용자 이름
-	private String alias;	// 별명
-	private Date reg_dt;	// 등록일
+	private String userId;		//사용자 아이디
+	private String pass;		//사용자 비밀번호
+	private String userNm;		//사용자 이름
+	private String alias;		//별명
+	private Date reg_dt;		//등록일
+	private String addr1;		//주소1
+	private String addr2;		//주소2
+	private String zipcode;		//우편번호
 	
 	public User() {
 		
 	}
-
-	public User(String userNm) {
-		this.userNm = userNm;
+	
+	public User(String userName) {
+		this.userNm = userName;
+	}
+	
+	public String getAlias() {
+		return alias;
 	}
 
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
+
+	public Date getReg_dt() {
+		return reg_dt;
+	}
+	
+	public String getReg_dt_fmt() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(reg_dt);
+	}
+
+	public void setReg_dt(Date reg_dt) {
+		this.reg_dt = reg_dt;
+	}
+	
 	public String getUserNm() {
 		return userNm;
 	}
@@ -30,7 +54,7 @@ public class User {
 	public void setUserNm(String userNm) {
 		this.userNm = userNm;
 	}
-	
+
 	public String getUserId() {
 		return userId;
 	}
@@ -47,39 +71,50 @@ public class User {
 		this.pass = pass;
 	}
 
-	public String getAlias() {
-		return alias;
+	public String getAddr1() {
+		return addr1;
 	}
 
-	public void setAlias(String alias) {
-		this.alias = alias;
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
 	}
 
-	public Date getReg_dt() {
-		return reg_dt;
+	public String getAddr2() {
+		return addr2;
+	}
+
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 	
-	public String getReg_dt_fmt() {
-		logger.debug("getReg_dt_fmt method call");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return sdf.format(reg_dt);
-	}
-
-	public void setReg_dt(Date reg_dt) {
-		this.reg_dt = reg_dt;
-	}
-
 	@Override
 	public String toString() {
-		return "UserVo [userId=" + userId + ", pass=" + pass + ", userName=" + userNm + "]";
-	}
-	
-	public boolean checkLoginValidate(String userId, String pass) {
-		
-		if(userId.equals(this.userId) && pass.equals(this.pass)) {
-			return true;
-		}
-		return false;
+		return "User [userId=" + userId + ", pass=" + pass + ", userNm=" + userNm + ", alias=" + alias + ", reg_dt="
+				+ reg_dt + ", addr1=" + addr1 + ", addr2=" + addr2 + ", zipcode=" + zipcode + "]";
 	}
 
+	public boolean checkLoginValidate(String userId, String pass) {
+		
+		if(userId.equals(this.userId) && pass.equals(this.pass))
+			return true;
+		
+		return false;
+	}
+	
 }
+
+
+
+
+
+
+
+

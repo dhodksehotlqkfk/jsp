@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <form action="<%=request.getContextPath() %>/sumCalculation" method="post">
-      숫자1 : <input type="text" name="start"/>
-      숫자2 : <input type="text" name="end"/>
-      <button type="submit">전송</button>
-   </form>
+<form action="<%=request.getContextPath() %>/sumCalculation" method="post">
+	start : <input type="text" name="start" value="1"/><br>
+	end : <input type="text" name="end" value="10"/><br>
+	<input type="submit" value="계산하기"/>
+</form>
 </body>
 </html>

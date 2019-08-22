@@ -1,4 +1,4 @@
-package kr.or.ddit.lprod.repository;
+package kr.or.ddit.lprod.dao;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.Page;
-import kr.or.ddit.lprod.model.LprodVO;
+import kr.or.ddit.lprod.model.Lprod;
 import kr.or.ddit.util.MybatisUtil;
 
 public class LprodDaoTest {
@@ -34,7 +34,7 @@ public class LprodDaoTest {
 		/***Given***/
 	
 		/***When***/
-		List<LprodVO> lprodList = lprodDao.getLprodList(sqlSession);
+		List<Lprod> lprodList = lprodDao.getLprodList(sqlSession);
 
 		/***Then***/
 		assertEquals(10, lprodList.size());
@@ -52,7 +52,7 @@ public class LprodDaoTest {
 		Page page = new Page(1, 5);
 
 		/***When***/
-		List<LprodVO> lprodList = lprodDao.getLprodPagingList(sqlSession, page);
+		List<Lprod> lprodList = lprodDao.getLprodPagingList(sqlSession, page);
 
 		/***Then***/
 		assertEquals(5, lprodList.size());

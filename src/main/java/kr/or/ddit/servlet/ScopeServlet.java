@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/scopeTest")
 public class ScopeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/jsp/scopeTestView.jsp").forward(request, response);
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String reqParam = request.getParameter("reqParam");
 		String sessionParam = request.getParameter("sessionParam");
@@ -30,10 +30,10 @@ public class ScopeServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("sessionAttr", sessionParam + "_ATTR");
 		
-		//application (ServletContext)
-//		ServletContext application = request.getServletContext();
-//		getServletContext()
-		
+		//application (ServeltContext)
+		//	request.getServletContext();
+		//	getServletContext()
+
 		ServletContext application = request.getServletContext();
 		application.setAttribute("applicationAttr", applicationParam + "_ATTR");
 		
@@ -41,3 +41,9 @@ public class ScopeServlet extends HttpServlet {
 	}
 
 }
+
+
+
+
+
+

@@ -23,7 +23,7 @@ public class LoginController extends HttpServlet {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-	private IUserService userService;
+	private IUserService userService;	// IUserService
 	
 	@Override
 	public void init() throws ServletException {
@@ -132,3 +132,13 @@ public class LoginController extends HttpServlet {
 		response.addCookie(cookie);
 	}
 }
+
+
+
+
+
+
+
+
+
+
