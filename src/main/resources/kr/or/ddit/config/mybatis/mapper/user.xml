@@ -39,9 +39,19 @@
 	
 	<!-- 사용자 등록 -->
 	<insert id="insertUser" parameterType="user">
-		insert into users (userId, userNm, pass, reg_dt, alias, addr1, addr2, zipcode)
-			values(#{userId}, #{userNm}, #{pass}, #{reg_dt}, #{alias}, #{addr1}, #{addr2}, #{zipcode})
-	</insert> 
+		insert into users (userId, userNm, pass, reg_dt, alias, addr1, addr2, zipcode, filename, realfilename)
+			values(#{userId}, #{userNm}, #{pass}, #{reg_dt}, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realfilename})
+	</insert>
+	
+	<!-- 사용자 삭제 -->
+	<delete id="deleteUser" parameterType="String">
+		delete users where userid = #{userId}
+	</delete>
+	
+	<!-- 사용자 수정 -->
+	<update id="updateUser" parameterType="user">
+		
+	</update>
 </mapper>
 
 
