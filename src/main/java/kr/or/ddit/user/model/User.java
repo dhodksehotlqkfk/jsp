@@ -19,9 +19,9 @@ public class User {
 	private String addr1;		//주소1
 	private String addr2;		//주소2
 	private String zipcode;		//우편번호
-	private String filename;	//파일명(사용자 업로드 파일명)
+	private String filename;		//파일명(사용자 업로드 파일명) 
 	private String realfilename;	//물리 파일명
-	private String realfilename2;
+	private String realfilename2;	//물리 파일명
 	
 	public User() {
 		
@@ -142,7 +142,7 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", pass=" + pass + ", userNm=" + userNm + ", alias=" + alias + ", reg_dt="
 				+ reg_dt + ", addr1=" + addr1 + ", addr2=" + addr2 + ", zipcode=" + zipcode + ", filename=" + filename
-				+ ", realfilename=" + realfilename + ", realfilename2=" + realfilename2 + "]";
+				+ ", realfilename=" + realfilename + "]";
 	}
 
 	public boolean checkLoginValidate(String userId, String pass) {

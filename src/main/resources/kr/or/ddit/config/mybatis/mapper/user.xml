@@ -50,7 +50,16 @@
 	
 	<!-- 사용자 수정 -->
 	<update id="updateUser" parameterType="user">
-		
+		update users set userNm = #{userNm}, 
+						pass = #{pass}, 
+						reg_dt = #{reg_dt},   
+						alias = #{alias},
+						addr1 = #{addr1}, 
+						addr2 = #{addr2},
+						zipcode = #{zipcode}, 
+						filename = nvl(#{filename}, filename), 
+						realfilename = nvl(#{realfilename}, realfilename)
+		where userId = #{userId}
 	</update>
 </mapper>
 

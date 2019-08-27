@@ -1,6 +1,6 @@
 package kr.or.ddit.encrypt.kisa.sha256;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -11,9 +11,9 @@ public class KISA_SHA256Test {
 	
 	/**
 	* Method : encryptTest
-	* 작성자 : PC-02
+	* 작성자 : SEM-PC
 	* 변경이력 :
-	* Method 설명 : sha256 암호화 테스트
+	* Method 설명 : sah256 암호화 테스트
 	*/
 	@Test
 	public void encryptTest() {
@@ -25,9 +25,11 @@ public class KISA_SHA256Test {
 		logger.debug("encryptedPass : {}", encryptedPass);
 
 		/***Then***/
-		
 		//c6347b73d5b1f7c77f8be828ee3e871c819578f23779c7d5e082ae2b36a44
 		//assertEquals("예상값", "실제값");
 	}
-
 }
+
+
+
+

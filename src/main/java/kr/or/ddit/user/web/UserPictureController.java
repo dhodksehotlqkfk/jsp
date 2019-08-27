@@ -14,6 +14,9 @@ import kr.or.ddit.user.model.User;
 import kr.or.ddit.user.service.IUserService;
 import kr.or.ddit.user.service.UserService;
 
+/**
+ * Servlet implementation class UserPictureController
+ */
 @WebServlet("/userPicture")
 public class UserPictureController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,6 +28,7 @@ public class UserPictureController extends HttpServlet {
 		userService = new UserService();
 	}
        
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		User user = userService.getUser(userId);
@@ -36,11 +40,16 @@ public class UserPictureController extends HttpServlet {
 		
 		byte[] buff = new byte[512];
 		int len = 0;
-		while((len = fis.read(buff, 0, 512)) != -1) {
+		
+		while( (len = fis.read(buff, 0, 512)) != -1 ) {
 			sos.write(buff, 0, len);
 		}
 		
 		fis.close();
 	}
 
+	
+
 }
+
+
