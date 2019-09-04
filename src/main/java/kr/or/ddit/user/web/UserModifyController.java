@@ -86,12 +86,6 @@ public class UserModifyController extends HttpServlet {
 			path = FileuploadUtil.getPath() + realFilename + ext;
 			
 			picture.write(path);
-			
-			//기존 파일은 삭제한다
-//			User orgUser = userService.getUser(userId);
-//			
-//			File file = new File(orgUser.getRealfilename());
-//			file.delete();
 		}
 		
 		

@@ -120,9 +120,9 @@ $(document).ready(function(){
 								--%>
 									<c:choose>
 										<c:when test="${pageVo.page == 1 }">
-											<li class="disabled">
+											<li class="disabled"><a href="#" aria-label="Previous">
 												<span aria-hidden="true">&laquo;</span>
-											</li>
+											</a></li>
 										</c:when>
 										<c:otherwise>
 											<li>
