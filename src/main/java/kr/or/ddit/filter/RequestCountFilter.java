@@ -72,7 +72,7 @@ public class RequestCountFilter implements Filter{
       //현재 요청이 왔으므로 한건 증가
       uriCount++;
       
-      //맴객체에 데이터를 갱신
+      //맵 객체에 데이터를 갱신
       requestCountMap.put(uri, uriCount);
       
       chain.doFilter(request, response);
