@@ -14,7 +14,7 @@ public class SelectLocaleController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 추가 코드가 필요하면 작업
 		String locale = request.getParameter("locale");
-//		locale = locale == 
+		locale = locale == null ? "ko" : locale; 
 		request.setAttribute("locale", locale);
 		
 		request.getRequestDispatcher("/jstl/selectLocale.jsp").forward(request, response);
